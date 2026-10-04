@@ -31,9 +31,14 @@ app.get("/", (req, res) => {
         loggedIn: res.locals.loggedIn,
         links: [
             {name: "Create Post", url: "/post"}, 
-            {name: "Home", url: "/home"}
+            {name: "Manage Posts", url: "/manage"},
+            {name: "Test", url: "/test"}
         ]
     });
+});
+
+app.get("/post", (req, res) => {
+    res.render("post.ejs");
 });
 
 app.post("/login", (req, res) => {
