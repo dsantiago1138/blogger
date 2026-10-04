@@ -18,7 +18,13 @@ app.use(
 );
 
 app.use((req, res, next) => {
-    // Access the loggedIn status from req.session
+    //Set global header links
+    res.locals.links = [
+        {name: "Create Post", url: "/post"}, 
+        {name: "Manage Posts", url: "/manage"},
+        {name: "Test", url: "/test"}
+    ];
+    // Set user session details
     res.locals.loggedIn = Boolean(req.session?.user);
     if (req.session?.user) {
         res.locals.welcomeMessage = `Hello, ${req.session.user.name}`;
@@ -27,14 +33,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-    res.render("index.ejs", {
-        loggedIn: res.locals.loggedIn,
-        links: [
-            {name: "Create Post", url: "/post"}, 
-            {name: "Manage Posts", url: "/manage"},
-            {name: "Test", url: "/test"}
-        ]
-    });
+    res.render("index.ejs");
 });
 
 app.get("/post", (req, res) => {
