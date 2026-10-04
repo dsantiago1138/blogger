@@ -1,0 +1,19 @@
+<header>
+    <h1>Blogger</h1>
+    <nav>
+        <% if (!loggedIn) { %>
+            <h4>Enter username</h4>
+            <form action="/login" method="POST">
+                <input type="text" name="username" placeholder="Username" id="">
+                <button type="submit">Log In</button>
+            </form>
+        <% } else { %>
+            <h4><%= locals.welcomeMessage %></h4>
+            <ul>
+                <% links.forEach(link => { %>
+                    <li><a href="<%= link.url %>"><%= link.name %></a></li>
+            <% }) %>
+            </ul>
+        <% } %>
+    </nav>
+</header>
