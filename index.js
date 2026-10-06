@@ -6,9 +6,11 @@ const app = express();
 const port = 3000;
 const secretKey = "fishbulb1138";
 
+const posts = [];
+
 app.use(bodyParser.urlencoded( { extended: true} ));
 
-// 2. Configure session middleware before your routes/custom middleware
+// 2. Configure session middleware before routes/custom middleware
 app.use(
     session({
         secret: secretKey,
@@ -24,6 +26,7 @@ app.use((req, res, next) => {
         {name: "Manage Posts", url: "/manage"},
         {name: "Test", url: "/test"}
     ];
+    res.locals.posts = posts;
     // Set user session details
     res.locals.loggedIn = Boolean(req.session?.user);
     if (req.session?.user) {
@@ -44,6 +47,15 @@ app.post("/login", (req, res) => {
     req.session.user = { name: req.body.username };
     res.redirect("/");
 })
+
+app.post("/createPost", (req, res) => {
+    const newPost = {
+        title: req.body["title"],
+        content: req.body["content"],
+    };
+    posts.push(newPost);
+    res.redirect("/");
+});
 
 
 
