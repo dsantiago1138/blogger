@@ -43,6 +43,10 @@ app.get("/post", (req, res) => {
     res.render("post.ejs");
 });
 
+app.get("/manage", (req, res) => {
+    res.render("manage.ejs");
+});
+
 app.post("/login", (req, res) => {
     req.session.user = { name: req.body.username };
     res.redirect("/");
@@ -56,7 +60,6 @@ app.post("/createPost", (req, res) => {
     posts.push(newPost);
     res.redirect("/");
 });
-
 
 
 app.listen(port, () => {
