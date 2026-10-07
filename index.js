@@ -9,6 +9,7 @@ const secretKey = "fishbulb1138";
 const posts = [];
 
 app.use(bodyParser.urlencoded( { extended: true} ));
+app.use(express.static("public"));
 
 // 2. Configure session middleware before routes/custom middleware
 app.use(

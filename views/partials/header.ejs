@@ -3,10 +3,12 @@
     <nav>
         <% if (!loggedIn) { %>
             <h4>Enter username</h4>
-            <form action="/login" method="POST">
-                <input type="text" name="username" placeholder="Username" id="">
-                <button type="submit">Log In</button>
-            </form>
+            <div class="container">
+                <form action="/login" method="POST">
+                    <input type="text" name="username" placeholder="Username" id="">
+                    <button type="submit">Log In</button>
+                </form>
+            </div>
         <% } else { %>
             <h4><%= locals.welcomeMessage %></h4>
             <ul>

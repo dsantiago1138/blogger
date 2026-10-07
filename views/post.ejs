@@ -8,13 +8,15 @@
 <body>
     <%- include("partials/header") %>
     <main>
-        <form action="/createPost" method="POST">
-            <input type="text" name="title" placeholder="Title" id="">
-            <br>
-            <input type="text" name="content" id="">
-            <br>
-            <button type="submit">Post</button>
-        </form>
+        <div class="container">
+            <form action="/createPost" method="POST">
+                <input type="text" name="title" placeholder="Title" id="">
+                <br>
+                <input type="text" name="content" id="">
+                <br>
+                <button type="submit">Post</button>
+            </form>
+        </div>
         <a href="/">GO HOME!</a>
     </main>
     
