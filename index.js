@@ -59,6 +59,7 @@ app.post("/createPost", (req, res) => {
     };
     posts.push(newPost);
     res.redirect("/");
+    
 });
 
 app.post("/deletePost", (req, res) => {
