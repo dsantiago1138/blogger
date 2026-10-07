@@ -15,9 +15,12 @@
             <% posts.forEach(post => { %>
                 <div>
                     <h2><%= post.title %></h2>
-                    <button>View</button>
-                    <button>Edit</button>
-                    <button>Delete</button>
+                    <form action="/deletePost" method="POST">
+                        <input type="hidden" name="title" value="<%= post.title %>">
+                        <button>Delete</button>
+                    </form>
+                    <a href="/editPost">Edit</a>
+                    <a href="/viewPost">View</a>
                 </div>
            <% }) %>
         <% } %>

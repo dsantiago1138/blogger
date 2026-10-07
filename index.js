@@ -61,6 +61,16 @@ app.post("/createPost", (req, res) => {
     res.redirect("/");
 });
 
+app.post("/deletePost", (req, res) => {
+    const postTitle = req.body.title;
+    const index = posts.findIndex(post => post.title === postTitle );
+
+    if (index !== -1) {
+        posts.splice(index, 1);
+    }
+    res.redirect("/manage");
+});
+
 
 app.listen(port, () => {
     console.log(`Running on port ${port}`);
