@@ -9,23 +9,25 @@
 <body>
     <%- include("partials/header") %>
     <main>
-        <h1>FUCK SOCKS</h1>
-        <% if (posts.length === 0) { %>
-            <h3>No posts</h3>
-        <% } else { %>
-            <% posts.forEach(post => { %>
-                <div class="container">
-                    <h2><%= post.title %></h2>
-                    <form action="/deletePost" method="POST">
-                        <input type="hidden" name="title" value="<%= post.title %>">
-                        <button>Delete</button>
-                    </form>
-                    <a href="/editPost">Edit</a>
-                    <a href="/viewPost">View</a>
-                </div>
-           <% }) %>
-        <% } %>
-        <a href="/">GO HOME!</a>
+        <div class="container">
+            <h1>FUCK SOCKS</h1>
+            <% if (posts.length === 0) { %>
+                <h3>No posts</h3>
+            <% } else { %>
+                <% posts.forEach(post => { %>
+                    <div class="post-card">
+                        <h2><%= post.title %></h2>
+                        <form action="/deletePost" method="POST">
+                            <input type="hidden" name="title" value="<%= post.title %>">
+                            <button>Delete</button>
+                        </form>
+                        <a href="/editPost">Edit</a>
+                        <a href="/viewPost">View</a>
+                    </div>
+            <% }) %>
+            <% } %>
+            <a href="/">GO HOME!</a>
+        </div>
     </main>
     
 </body>
