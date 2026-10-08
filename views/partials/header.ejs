@@ -1,19 +1,17 @@
 <header id="header">
-    <h1>Blogger</h1>
-    <nav>
+    <h1>BLOGGER</h1>
+    <nav class="nav">
         <% if (!loggedIn) { %>
-            <div class="container">
-                <h4>Enter username</h4>
-                <form action="/login" method="POST">
-                    <input type="text" name="username" placeholder="Username" id="">
-                    <button type="submit">Log In</button>
-                </form>
-            </div>
+            <h4>Enter username</h4>
+            <form action="/login" method="POST">
+                <input type="text" name="username" placeholder="Username" class="input">
+                <button type="submit" class="button">Log In</button>
+            </form>
         <% } else { %>
             <h4><%= locals.welcomeMessage %></h4>
             <ul>
                 <% links.forEach(link => { %>
-                    <li><a href="<%= link.url %>"><%= link.name %></a></li>
+                    <li><a href="<%= link.url %>" class="button"><%= link.name %></a></li>
             <% }) %>
             </ul>
         <% } %>

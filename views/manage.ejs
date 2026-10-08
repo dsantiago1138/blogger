@@ -5,24 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Posts</title>
     <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://use.typekit.net/xhs8ymt.css">
 </head>
 <body>
     <%- include("partials/header") %>
     <main>
         <div class="container">
-            <h1>FUCK SOCKS</h1>
+            <h2>FUCK SOCKS</h2>
             <% if (posts.length === 0) { %>
                 <h3>No posts</h3>
             <% } else { %>
                 <% posts.forEach(post => { %>
                     <div class="post-card">
-                        <h2><%= post.title %></h2>
+                        <h3><%= post.title %></h3>
                         <form action="/deletePost" method="POST">
                             <input type="hidden" name="title" value="<%= post.title %>">
-                            <button>Delete</button>
+                            <button class="button">Delete</button>
                         </form>
-                        <a href="/editPost">Edit</a>
-                        <a href="/viewPost">View</a>
+                        <a href="/editPost" class="button">Edit</a>
+                        <a href="/viewPost" class="button">View</a>
                     </div>
             <% }) %>
             <% } %>
